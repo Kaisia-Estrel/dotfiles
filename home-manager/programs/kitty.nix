@@ -1,34 +1,14 @@
 {
   programs.kitty = {
     enable = true;
-    font = {
-      name = "JetBrains Mono Nerd Font";
-      size = 11;
-    };
 
     settings = {
       tab_bar_style = "powerline";
       disable_ligatures = "cursor";
-      background_opacity = "0.75";
       dynamic_background_opacity = true;
       allow_remote_control = true;
 
       shell_integration = true;
-
-      color0 = "#2F302F";
-      color8 = "#47526B";
-      color1 = "#a22f2f";
-      color9 = "#b42525";
-      color2 = "#8fc84c";
-      color10 = "#5dc42d";
-      color3 = "#d8b43f";
-      color11 = "#dbe150";
-      color4 = "#6589f4";
-      color12 = "#284796";
-      color5 = "#a383cb";
-      color13 = "#9563cb";
-      color6 = "#0f94d2";
-      color14 = "#3fb0b1";
     };
     keybindings = {
       "kitty_mod+x" = "close_window";

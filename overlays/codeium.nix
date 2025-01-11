@@ -13,25 +13,23 @@ let
   }.${system} or throwSystem;
 
   hash = {
-    x86_64-linux = "sha256-77TGRR5N/g0QgnGcu61UJ/FsCmDn5c21NMtNfQMvIYw=";
-    aarch64-linux = "sha256-0kR799yuxSFmyedJ14f5/EqOiFHs9cWjeJKvDIpIRl0=";
-    x86_64-darwin = "sha256-7Go5qZVAe2UHn547HZG4fmh84iF2r15+0IIlJK72Fqg=";
-    aarch64-darwin = "sha256-fe4GrgLRr66Qmme3p0X5BEwvKZhqG1aiE8xs5A1Dt6E=";
+    x86_64-linux = "sha256-IeNK7UQtOhqC/eQv7MAya4jB1WIGykSR7IgutZatmHM=";
   }.${system} or throwSystem;
 
   bin = "$out/bin/codeium_language_server";
 
-in
-stdenv.mkDerivation (finalAttrs: {
+in stdenv.mkDerivation (finalAttrs: {
   pname = "codeium";
-  version = "1.20.6";
+  version = "1.20.9";
   src = fetchurl {
     name = "${finalAttrs.pname}-${finalAttrs.version}.gz";
-    url = "https://github.com/Exafunction/codeium/releases/download/language-server-v${finalAttrs.version}/language_server_${plat}.gz";
+    url =
+      "https://github.com/Exafunction/codeium/releases/download/language-server-v${finalAttrs.version}/language_server_${plat}.gz";
     inherit hash;
   };
 
-  nativeBuildInputs = [ gzip ] ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = [ gzip ]
+    ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
   dontUnpack = true;
   dontConfigure = true;
@@ -63,7 +61,8 @@ stdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.unfree;
     maintainers = with lib.maintainers; [ anpin ];
     mainProgram = "codeium";
-    platforms = [ "aarch64-darwin" "aarch64-linux" "x86_64-linux" "x86_64-darwin" ];
+    platforms =
+      [ "aarch64-darwin" "aarch64-linux" "x86_64-linux" "x86_64-darwin" ];
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
   };
 })

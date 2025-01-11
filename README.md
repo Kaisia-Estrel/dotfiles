@@ -1,4 +1,4 @@
-# Perigord Truffle Dotfiles
+# Perigord-Kleisli Dotfiles
 
 # Installation
 
@@ -15,3 +15,6 @@ nix flake clone github:Perigord-Kleisli/dotfiles --dest /etc/nixos
 
 sudo nixos-rebuild switch
 ```
+
+# Special Thanks to
+- [ZaneyOS](https://gitlab.com/Zaney/zaneyos) - Used as config reference

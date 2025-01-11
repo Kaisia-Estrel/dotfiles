@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   programs.wofi = {
     enable = true;
     settings = {
@@ -10,10 +6,5 @@
       insensitive = true;
       allow_images = true;
     };
-    style = ''
-    * {
-      font-family: Roboto;
-    }
-    '';
   };
 }
