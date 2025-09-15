@@ -38,7 +38,8 @@
         "nixos" = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            inherit pkgs;
+            # inherit pkgs;
+            overlays = [ fenix.overlays.default (import ./overlays) ];
             inherit system;
             inherit username;
           };
@@ -54,7 +55,7 @@
                   inherit username;
                   inherit pkgs;
                 };
-                useGlobalPkgs = true;
+                # useGlobalPkgs = true;
                 useUserPackages = true;
                 users.${username} = import ./home-manager/home.nix;
               };

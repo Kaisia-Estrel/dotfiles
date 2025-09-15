@@ -8,6 +8,8 @@
       "rustfmt"
     ])
     bacon
+    android-studio
+    androidenv.androidPkgs.platform-tools
     calibre
     p7zip
     lldb
@@ -22,9 +24,10 @@
     imagemagick
     python312Packages.python-lsp-server
     ruff
-    davinci-resolve
+    # davinci-resolve
     losslesscut-bin
     switcheroo
+    simple-scan
     hyprlock
     socat
     satty
@@ -42,7 +45,7 @@
     # betterdiscordctl
     element-desktop
     nodePackages_latest.bash-language-server
-    kdenlive
+    libsForQt5.kdenlive
     krita
     zathura
     texlab
@@ -72,7 +75,7 @@
     libsForQt5.okular
     pavucontrol
 
-    unclutter
+    # unclutter
     xclip
     libnotify
     gnuplot
@@ -80,17 +83,21 @@
     exercism
     sqlite
 
-    zoom-us
+    # zoom-us
     qemu
     virt-manager
     gtk-engine-murrine
     gtkmm4
     gtkmm3
+    aseprite
 
     tldr
     zip
     ripgrep
     asciinema
+    asciinema-agg
+    pandoc
+    file
     unzip
     fd
     grex
@@ -99,7 +106,7 @@
     jq
     rlwrap
     gnumake
-    python39
+    python314
     gcc
     beautysh
     steam-run
@@ -125,7 +132,7 @@
 
     marksman
     nodePackages.cspell
-    nodePackages.vscode-json-languageserver
+    # nodePackages.vscode-json-languageserver
     nodejs
     gpick
     wordnet

@@ -4,6 +4,7 @@
     homeDirectory = "/home/${username}";
     preferXdgDirectories = true;
     stateVersion = "23.05";
+    # pointerCursor.size = 64;
     sessionVariables = with config.xdg; {
       HISTFILE = "${stateHome}/bash/history";
       CABAL_CONFIG = "${configHome}/cabal/config";

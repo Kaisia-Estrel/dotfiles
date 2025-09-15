@@ -1,7 +1,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, options, config, username, inputs, ... }: {
+{ pkgs, options, config, username, inputs, overlays, ... }: {
+
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
@@ -34,6 +35,7 @@
     enable = true;
     targets = {
       grub = { enable = true; };
+      # firefox.profileNames = [ ];
 
       gtk.enable = true;
       lightdm.enable = false;
@@ -42,6 +44,7 @@
     polarity = "dark";
     cursor = {
       package = pkgs.catppuccin-cursors.mochaDark;
+      size = 12;
       name = "catppuccin-mocha-dark-cursors";
     };
     opacity.terminal = 0.8;
@@ -65,7 +68,7 @@
     };
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
 
@@ -215,6 +218,8 @@
     #   enable = true;
     #   indicator = true;
     # };
+    sway = { enable = true; };
+    river = { enable = true; };
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -257,8 +262,16 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "Home";
-    extraGroups =
-      [ "networkmanager" "video" "docker" "wheel" "libvirtd" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "video"
+      "docker"
+      "wheel"
+      "libvirtd"
+      "input"
+      "kvm"
+      "adbusers"
+    ];
     shell = pkgs.zsh;
     packages = [ ];
   };
@@ -307,7 +320,8 @@
       raleway-overlay
       etBook
       times-newer-roman
-      (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
+      nerd-fonts.jetbrains-mono
+      # (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
       (google-fonts.override {
         fonts = [ "Space Grotesk" "Roboto" "Bebas Neue" "Anton" ];
       })
@@ -374,8 +388,57 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = "smbnix";
+        "netbios name" = "smbnix";
+        security = "user";
+        #"use sendfile" = "yes";
+        #"max protocol" = "smb2";
+        # note: localhost is the ipv6 localhost ::1
+        "hosts allow" = "192.168.0. 127.0.0.1 localhost";
+        "hosts deny" = "0.0.0.0/0";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+      };
+      "public" = {
+        "path" = "/mnt/Shares/Public";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "username";
+        "force group" = "groupname";
+      };
+      "private" = {
+        "path" = "/mnt/Shares/Private";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "username";
+        "force group" = "groupname";
+      };
+    };
+  };
+
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  networking.firewall.allowPing = true;
+
+  nixpkgs.overlays = overlays;
   nixpkgs.config.allowUnfree = true;
   nix = {
+
     settings = {
       trusted-users = [ "root" username ];
       auto-optimise-store = true;

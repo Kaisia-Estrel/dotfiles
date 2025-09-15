@@ -23,13 +23,13 @@ in {
       isDefault = true;
 
       search = {
-        default = "DuckDuckGo";
+        default = "ddg";
         engines = {
           "Stack Overflow" = {
             urls = [{
               template = "https://stackoverflow.com/search?q={searchTerms}";
             }];
-            iconUpdateURL = "https://scholar.google.com/favicon.ico";
+            icon = "https://scholar.google.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@stack" ];
           };
@@ -37,7 +37,7 @@ in {
             urls = [{
               template = "https://scholar.google.com/scholar?q={searchTerms}";
             }];
-            iconUpdateURL = "https://scholar.google.com/favicon.ico";
+            icon = "https://scholar.google.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@edu" ];
           };
@@ -46,7 +46,7 @@ in {
               template =
                 "https://www.merriam-webster.com/thesaurus/{searchTerms}";
             }];
-            iconUpdateURL = "https://www.merriam-webster.com/favicon.svg";
+            icon = "https://www.merriam-webster.com/favicon.svg";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@th" ];
           };
@@ -55,7 +55,7 @@ in {
               template =
                 "https://www.merriam-webster.com/dictionary/{searchTerms}";
             }];
-            iconUpdateURL = "https://www.merriam-webster.com/favicon.svg";
+            icon = "https://www.merriam-webster.com/favicon.svg";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@di" ];
           };
@@ -64,7 +64,7 @@ in {
               template =
                 "https://hackage.haskell.org/packages/search?terms={searchTerms}";
             }];
-            iconUpdateURL = "https://hackage.haskell.org/static/favicon.png";
+            icon = "https://hackage.haskell.org/static/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@hkg" ];
           };
@@ -72,14 +72,14 @@ in {
             urls = [{
               template = "https://hoogle.haskell.org/?hoogle={searchTerms}";
             }];
-            iconUpdateURL = "https://hoogle.haskell.org/favicon.png";
+            icon = "https://hoogle.haskell.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@hs" ];
           };
           "Nix" = {
             urls =
               [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
-            iconUpdateURL = "https://mynixos.com/favicon.ico";
+            icon = "https://mynixos.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@nix" ];
           };
@@ -88,7 +88,7 @@ in {
               template =
                 "https://wiki.nixos.org/index.php?search={searchTerms}";
             }];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+            icon = "https://wiki.nixos.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "@nixw" ];
           };
