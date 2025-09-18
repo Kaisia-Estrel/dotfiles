@@ -8,7 +8,7 @@
       serverAliases = [ "testtruff.org" ];
     };
   };
-  mysql = {
+  services.mysql = {
     enable = true;
     package = pkgs.mariadb;
   };

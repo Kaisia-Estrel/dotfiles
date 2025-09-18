@@ -145,5 +145,9 @@
     python312Packages.pygments
 
     usbutils
+
+    typst
+    prettypst
+    typst-live
   ];
 }
