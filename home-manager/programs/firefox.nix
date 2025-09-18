@@ -25,6 +25,15 @@ in {
       search = {
         default = "ddg";
         engines = {
+          "NLab" = {
+            urls = [{
+              template =
+                "https://www.google.com/search?as_q={searchTerms}&as_sitesearch=https%3A%2F%2Fncatlab.org%2Fnlab%2F";
+            }];
+            icon = "https://ncatlab.org/favicon.ico";
+            updateInterval = 24 * 60 * 60 * 1000;
+            definedAliases = [ "@nlab" ];
+          };
           "Stack Overflow" = {
             urls = [{
               template = "https://stackoverflow.com/search?q={searchTerms}";
