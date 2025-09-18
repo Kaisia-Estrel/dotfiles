@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 { pkgs, options, config, username, inputs, overlays, ... }: {
 
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./network.nix ];
 
   boot = {
     kernelModules = [ "v4l2loopback" ];
@@ -98,7 +98,7 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 3000 80 17500 8080 9100 50001 57621 ];
+      allowedTCPPorts = [ 3000 80 443 17500 8080 9100 50001 57621 ];
       # 50001: codeium
       # 57621: spotify
       allowedUDPPorts = [ 17500 8080 5353 ]; # 175000 for Dropbox
@@ -114,16 +114,8 @@
     };
   };
 
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=15m
-  '';
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  powerManagement.enable = true;
   services = {
+
     udisks2.enable = true;
     tlp = {
       enable = true;
@@ -211,7 +203,63 @@
     ipp-usb.enable = true;
 
     blueman.enable = true;
+    # Did you read the comment?
+
+    samba = {
+      enable = true;
+      openFirewall = true;
+      settings = {
+        global = {
+          "workgroup" = "WORKGROUP";
+          "server string" = "smbnix";
+          "netbios name" = "smbnix";
+          security = "user";
+          #"use sendfile" = "yes";
+          #"max protocol" = "smb2";
+          # note: localhost is the ipv6 localhost ::1
+          "hosts allow" = "192.168.0. 127.0.0.1 localhost";
+          "hosts deny" = "0.0.0.0/0";
+          "guest account" = "nobody";
+          "map to guest" = "bad user";
+        };
+        "public" = {
+          "path" = "/mnt/Shares/Public";
+          "browseable" = "yes";
+          "read only" = "no";
+          "guest ok" = "yes";
+          "create mask" = "0644";
+          "directory mask" = "0755";
+          "force user" = "username";
+          "force group" = "groupname";
+        };
+        "private" = {
+          "path" = "/mnt/Shares/Private";
+          "browseable" = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
+          "create mask" = "0644";
+          "directory mask" = "0755";
+          "force user" = "username";
+          "force group" = "groupname";
+        };
+      };
+    };
+
+    samba-wsdd = {
+      enable = true;
+      openFirewall = true;
+    };
   };
+
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=15m
+  '';
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  powerManagement.enable = true;
 
   programs = {
     # nm-applet = {
@@ -386,52 +434,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
-
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      global = {
-        "workgroup" = "WORKGROUP";
-        "server string" = "smbnix";
-        "netbios name" = "smbnix";
-        security = "user";
-        #"use sendfile" = "yes";
-        #"max protocol" = "smb2";
-        # note: localhost is the ipv6 localhost ::1
-        "hosts allow" = "192.168.0. 127.0.0.1 localhost";
-        "hosts deny" = "0.0.0.0/0";
-        "guest account" = "nobody";
-        "map to guest" = "bad user";
-      };
-      "public" = {
-        "path" = "/mnt/Shares/Public";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "username";
-        "force group" = "groupname";
-      };
-      "private" = {
-        "path" = "/mnt/Shares/Private";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "username";
-        "force group" = "groupname";
-      };
-    };
-  };
-
-  services.samba-wsdd = {
-    enable = true;
-    openFirewall = true;
-  };
+  system.stateVersion = "23.05";
 
   networking.firewall.allowPing = true;
 
