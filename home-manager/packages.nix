@@ -147,7 +147,9 @@
     usbutils
 
     typst
-    prettypst
+    typstyle
+    tinymist
     typst-live
+    websocat
   ];
 }
