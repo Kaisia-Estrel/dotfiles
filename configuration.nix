@@ -169,9 +169,9 @@
       defaultSession = "hyprland";
     };
     upower.enable = true;
-    logind = {
-      powerKey = "ignore";
-      lidSwitch = "suspend-then-hibernate";
+    logind.settings.Login = {
+      HandlePowerKey = "ignore";
+      HandleLidSwitch = "suspend-then-hibernate";
     };
     gnome = {
       gnome-keyring.enable = true;
@@ -267,7 +267,7 @@
     #   indicator = true;
     # };
     sway = { enable = true; };
-    river = { enable = true; };
+    # river = { enable = true; };
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -369,10 +369,10 @@
       etBook
       times-newer-roman
       nerd-fonts.jetbrains-mono
-      # (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
       (google-fonts.override {
         fonts = [ "Space Grotesk" "Roboto" "Bebas Neue" "Anton" ];
       })
+      newcomputermodern
       source-sans-pro
       feather
     ];

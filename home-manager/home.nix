@@ -1,4 +1,4 @@
-{ username, config, inputs, ... }: {
+{ username, config, inputs, pkgs, ... }: {
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
@@ -22,6 +22,7 @@
     ./programs
     ./services
     ./share
+    ./hyprland
   ];
 
   stylix.enable = true;

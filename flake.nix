@@ -12,6 +12,11 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +27,7 @@
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     eza.url = "github:eza-community/eza";
     devenv.url = "github:cachix/devenv/latest";
+
   };
 
   outputs = { nixpkgs, fenix, home-manager, stylix, ... }@inputs:
@@ -50,6 +56,7 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
+                backupFileExtension = "bk";
                 extraSpecialArgs = {
                   inherit inputs;
                   inherit username;

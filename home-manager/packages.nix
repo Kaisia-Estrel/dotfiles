@@ -45,7 +45,7 @@
     # betterdiscordctl
     element-desktop
     nodePackages_latest.bash-language-server
-    libsForQt5.kdenlive
+    kdePackages.kdenlive
     krita
     zathura
     texlab
@@ -72,7 +72,7 @@
     imagemagick
     qalculate-gtk
     libqalculate
-    libsForQt5.okular
+    kdePackages.okular
     pavucontrol
 
     # unclutter
