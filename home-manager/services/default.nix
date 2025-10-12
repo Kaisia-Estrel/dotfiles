@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   services = {
-    clipman.enable = true;
+    # clipman.enable = true;
     gnome-keyring.enable = true;
     kdeconnect = {
       enable = true;

@@ -446,6 +446,7 @@
       trusted-users = [ "root" username ];
       auto-optimise-store = true;
       allow-import-from-derivation = "true";
+      download-buffer-size = 167108864;
       experimental-features = [ "nix-command" "flakes" ];
       trusted-public-keys = [
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="

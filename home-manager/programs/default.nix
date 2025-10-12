@@ -7,12 +7,11 @@
     ./wofi
     ./wlogout.nix
     ./swaync.nix
+    ./obsidian
   ];
 
   programs = {
     bat = { enable = true; };
-
-    obsidian = { enable = true; };
 
     obs-studio = {
       enable = true;
