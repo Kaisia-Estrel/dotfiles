@@ -1,75 +1,65 @@
 { pkgs, ... }:
 
 let
-  vim-yank-highlight = pkgs.fetchFromGitHub {
-    owner = "aleksey-rowan";
-    repo = "obsidian-vim-yank-highlight";
-    rev = "914c83c508823a29796a1e271c91e9b88e1fb0d0";
-    hash = "sha256-Z10vHpVFntbT7lg6oA9YnxnIBIN0AG6ez/lgso06EhQ=";
+  makePackage = file:
+    pkgs.stdenv.mkDerivation {
+      name = "${pkgs.lib.path.removePrefix ./plugins file}";
+      src = file;
+
+      installPhase = ''
+        mkdir -p "$out"
+        install -D * "$out"
+      '';
+    };
+
+  obsidian-git = pkgs.fetchzip {
+    url =
+      "https://github.com/Vinzent03/obsidian-git/releases/download/2.35.1/obsidian-git-2.35.1.zip";
+    sha256 = "sha256-3YgfNEKmmWGAiEnWUI4+5nuFJV7Y1r1Uc4RKjHzZ9QQ=";
   };
 
-  obsidian-vimium = pkgs.fetchFromGitHub {
-    owner = "karstenpedersen";
-    repo = "obsidian-vimium";
-    rev = "f2227f5532e267a7549400dde85a185a6dc1b41b";
-    hash = "sha256-Qu9P+KVlazlHzEK4+9zQ4sbBgO1GXFqPgU66/TpVqNg=";
+  obsidian-switcher-plus = pkgs.fetchzip {
+    url =
+      "https://github.com/darlal/obsidian-switcher-plus/releases/download/5.3.1/dist.zip";
+    sha256 = "sha256-pkMubvbIOVM89CwA3D+QW+T/1i0Tqv8A0G4JU4nEVI4=";
   };
 
-  quickswitcher = pkgs.fetchFromGitHub {
-    owner = "darlal";
-    repo = "obsidian-switcher-plus";
-    rev = "4fa97fa21bf62f3cdfbb15378576caebd07fc410";
-    hash = "sha256-BI4LMZdYPZ8PeD/TMCtOdQCi+7999JLXnXZj8nZAmYo=";
+  obsidian-latex-suite = pkgs.fetchzip {
+    url =
+      "https://github.com/artisticat1/obsidian-latex-suite/releases/download/1.9.8/obsidian-latex-suite-1.9.8.zip";
+    sha256 = "sha256-sg+GwsWfkczPgtMh+xkwd49+HLui755QRNe7RygLe18=";
   };
 
-  obsidian-latex-suite = pkgs.fetchFromGitHub {
-    owner = "artisticat1";
-    repo = "obsidian-latex-suite";
-    rev = "ce31511a47949e3d4d0b3a43444949fd5a6a69f6";
-    hash = "sha256-kDW6lJnRUFtERRmTck8bJ65u6EwAaT2D01h8OELCiRw=";
-  };
-
-  obsidian-latex-math = pkgs.fetchFromGitHub {
-    owner = "zarstensen";
-    repo = "obsidian-latex-math";
-    rev = "1e822a0a5375cdd1facff0130eb7a9ab80a45f7e";
-    hash = "sha256-6XMEIivbZSPEepfyRsG/LBzhp+XeIHGRWrwsmaRhDSY=";
-  };
-
-  obsidian-git = pkgs.fetchFromGitHub {
-    owner = "Vinzent03";
-    repo = "obsidian-git";
-    rev = "0f3d368fea440f4a703ea8db21798c2af6d64557";
-    hash = "sha256-CxeqFMLQ0nDwY7W/oVfcDIRRV4yM+8ncaLl5fWiVNg8=";
-  };
-
-  folder-notes = pkgs.fetchFromGitHub {
-    owner = "xpgo";
-    repo = "obsidian-folder-note-plugin";
-    rev = "272bbdc9a674fd333e6a97b02611868797648585";
-    hash = "sha256-MOvf89nvOQHXdXH0rk5tHkR7/XBBkJkoxhxbvMyQjQc=";
-  };
-
-  calendar = pkgs.fetchFromGitHub {
-    owner = "liamcain";
-    repo = "obsidian-calendar-plugin";
-    rev = "ef3f2696da11aa1d11a272179caea062d6144640";
-    hash = "sha256-isOcRV21CCHc6tj49y08f0F1tTYhuQMCUdvr/NIL/rY=";
-  };
 in {
 
   programs.obsidian = {
     enable = true;
     defaultSettings = {
       communityPlugins = [
-        { pkg = vim-yank-highlight; }
-        { pkg = obsidian-vimium; }
-        { pkg = obsidian-latex-suite; }
-        { pkg = quickswitcher; }
-        { pkg = obsidian-latex-math; }
-        { pkg = obsidian-git; }
-        { pkg = folder-notes; }
-        { pkg = calendar; }
+        {
+          enable = true;
+          pkg = makePackage ./plugins/obsidian-vim-yank-highlight;
+        }
+        {
+          enable = true;
+          pkg = makePackage ./plugins/obsidian-vimium;
+        }
+        {
+          enable = true;
+          pkg = makePackage ./plugins/obsidian-calendar-plugin;
+        }
+        {
+          enable = true;
+          pkg = obsidian-git;
+        }
+        {
+          enable = true;
+          pkg = obsidian-switcher-plus;
+        }
+        {
+          enable = true;
+          pkg = obsidian-latex-suite;
+        }
       ];
       app = { vimMode = true; };
       hotkeys = import ./hotkeys.nix;
