@@ -9,15 +9,13 @@ let
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-    ];
+    package =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
 
     settings = {
       "exec-once" = [
-        "${saveLastWorkspace}"
+        "${saveLastWorkspace}/bin/save-last-workspace"
         "[workspace special:obsidian silent] ${pkgs.obsidian}/bin/obsidian"
       ];
     };

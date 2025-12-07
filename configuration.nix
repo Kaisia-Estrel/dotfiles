@@ -358,7 +358,7 @@
 
   fonts = {
     packages = with pkgs; [
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       font-awesome
@@ -417,10 +417,10 @@
       enable32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        intel-vaapi-driver
         intel-compute-runtime
         vpl-gpu-rt
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
       ];
     };

@@ -1,10 +1,13 @@
-{ pkgs, lib, ... }:
-{
+_: {
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
   programs.git = {
     enable = true;
-    delta.enable = true;
-    userName = "Trouble-Truffle";
-    userEmail = "perigordtruffle7318@gmail.com";
-    extraConfig.credential.helper = "store";
+    settings = {
+      user.name = "Trouble-Truffle";
+      user.email = "perigordtruffle7318@gmail.com";
+    };
   };
 }

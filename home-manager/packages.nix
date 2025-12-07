@@ -116,11 +116,9 @@
 
     shellcheck
     appimage-run
-    wakatime
+    wakatime-cli
 
     cbqn
-
-    fennel
 
     nix-prefetch-github
     statix

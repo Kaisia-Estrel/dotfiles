@@ -8,6 +8,8 @@ let
   };
 in {
 
+  stylix.targets.firefox.profileNames = [ "default" ];
+
   home.file."${config.programs.firefox.configPath}/default/chrome/ShyFox" = {
     recursive = true;
     source = "${shyfox}/chrome/ShyFox";
