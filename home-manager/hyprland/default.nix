@@ -7,6 +7,15 @@ let
   };
 
 in {
+
+  systemd.user.services.save-last-workspace = {
+    Unit = {
+      Description = "Save last visited workspace";
+      Restart = "on-failure";
+    };
+    Service = { ExecStart = "${saveLastWorkspace}/bin/save-last-workspace"; };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package =
@@ -14,10 +23,8 @@ in {
     # plugins = [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ];
 
     settings = {
-      "exec-once" = [
-        "${saveLastWorkspace}/bin/save-last-workspace"
-        "[workspace special:obsidian silent] ${pkgs.obsidian}/bin/obsidian"
-      ];
+      "exec-once" =
+        [ "[workspace special:obsidian silent] ${pkgs.obsidian}/bin/obsidian" ];
     };
 
     extraConfig = pkgs.lib.readFile ./hyprland.conf;
