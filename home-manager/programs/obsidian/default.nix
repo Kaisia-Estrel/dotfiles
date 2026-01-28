@@ -30,12 +30,50 @@ let
     sha256 = "sha256-sg+GwsWfkczPgtMh+xkwd49+HLui755QRNe7RygLe18=";
   };
 
+  obsidian-folder-notes = pkgs.stdenv.mkDerivation {
+    name = "obsidian-folder-notes";
+    version = "1.8.17";
+    srcs = [
+      (pkgs.fetchurl {
+        url =
+          "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.17/main.js";
+        sha256 =
+          "sha256:b3f0b6705dc2d7edd43059f3e4e27e96d0241217cb546ec2da785b5f67cce95a";
+      })
+      (pkgs.fetchurl {
+        url =
+          "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.17/manifest.json";
+        sha256 =
+          "sha256:f3d0920f51c115c416b16d01528c944d82db3453188342abfc441d10a9b4ff70";
+      })
+      (pkgs.fetchurl {
+        url =
+          "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.17/styles.css";
+        sha256 =
+          "sha256:3700d5a6d74b7b68301c5d1f69eb49eef8745f3412ecd0ed63ea94d37f5dc448";
+      })
+    ];
+
+    dontUnpack = true;
+
+    installPhase = ''
+      for f in $srcs; do
+        name="''${f#*-}"
+        install -Dm644 "$f" "$out/$name"
+      done
+    '';
+  };
+
 in {
 
   programs.obsidian = {
     enable = true;
     defaultSettings = {
       communityPlugins = [
+        {
+          enable = true;
+          pkg = obsidian-folder-notes;
+        }
         {
           enable = true;
           pkg = makePackage ./plugins/obsidian-vim-yank-highlight;
