@@ -49,8 +49,8 @@
         icon = ./data/PureRef.png;
         exec = let
           pureRef = pkgs.requireFile {
-            name = "PureRef-2.0.3_x64.Appimage";
-            sha256 = "1wrm81l5gg6b4gjsl74q2hhfdxigp85064dcm2bgarmczmq7a96j";
+            name = "PureRef-2.1.0_x64.Appimage";
+            sha256 = "0whrixslxwml61b244n1czyidd5jw4041vvwb2klyyii15nfc3ab";
             url = "https://www.pureref.com/download.php";
           };
         in "${pkgs.appimage-run}/bin/appimage-run ${pureRef}";

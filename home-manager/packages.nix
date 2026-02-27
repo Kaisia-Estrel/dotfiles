@@ -7,6 +7,10 @@
       "rustc"
       "rustfmt"
     ])
+
+    packet
+    kdePackages.dolphin
+
     bacon
     android-studio
     androidenv.androidPkgs.platform-tools

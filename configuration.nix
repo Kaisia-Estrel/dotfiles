@@ -319,6 +319,7 @@
       "input"
       "kvm"
       "adbusers"
+      "fuse"
     ];
     shell = pkgs.zsh;
     packages = [ ];
