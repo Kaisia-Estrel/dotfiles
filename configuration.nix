@@ -251,9 +251,7 @@
     };
   };
 
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=15m
-  '';
+  systemd.sleep.settings.Sleep = { HibernateDelaySec = "15m"; };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -367,7 +365,7 @@
       liberation_ttf_v1
       iosevka
       raleway-overlay
-      etBook
+      et-book
       times-newer-roman
       nerd-fonts.jetbrains-mono
       (google-fonts.override {

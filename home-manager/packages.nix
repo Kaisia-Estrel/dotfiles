@@ -26,7 +26,7 @@
     (ags.overrideAttrs
       (old: { buildInputs = old.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ]; }))
     imagemagick
-    python312Packages.python-lsp-server
+    # python312Packages.python-lsp-server
     ruff
     # davinci-resolve
     losslesscut-bin
@@ -62,7 +62,7 @@
     # graphviz
     nautilus
     loupe
-    wineWowPackages.stable
+    wineWow64Packages.stable
     eza
     ffmpeg
     ncdu
@@ -105,7 +105,7 @@
     unzip
     fd
     grex
-    neofetch
+    fastfetch
     trash-cli
     jq
     rlwrap
@@ -115,7 +115,7 @@
     beautysh
     steam-run
 
-    antibody
+    antidote
     acpi
 
     shellcheck
@@ -127,7 +127,7 @@
     nix-prefetch-github
     statix
     alejandra
-    nixfmt-classic
+    nixfmt
     nil
     deadnix
     devenv
@@ -138,7 +138,7 @@
     nodejs
     gpick
     wordnet
-    xorg.xmodmap
+    xmodmap
 
     swaynotificationcenter
     wl-clipboard
