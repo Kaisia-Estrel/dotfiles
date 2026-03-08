@@ -371,7 +371,7 @@
       times-newer-roman
       nerd-fonts.jetbrains-mono
       (google-fonts.override {
-        fonts = [ "Space Grotesk" "Roboto" "Bebas Neue" "Anton" ];
+        fonts = [ "Space Grotesk" "Roboto" "Bebas Neue" "Anton" "EB Garamond" ];
       })
       newcomputermodern
       source-sans-pro

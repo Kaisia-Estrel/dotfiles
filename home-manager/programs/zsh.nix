@@ -23,7 +23,6 @@
       dotDir = "${config.xdg.configHome}/zsh";
 
       shellAliases = {
-        luashell = "nix-shell -p stylua sumneko-lua-language-server stylua";
         ytmp3 = "${pkgs.yt-dlp}/bin/yt-dlp -f 'ba' -x --audio-format mp3";
 
         grep = "rg";
@@ -31,6 +30,8 @@
         py = "python";
 
         detach = "kitten @ detach-window";
+        clone = "kitty --detach";
+
         ls =
           "${pkgs.eza}/bin/eza -hF --color=always --icons --sort=size --group-directories-first";
         la =
@@ -44,8 +45,6 @@
         mkignore = "forgit::ignore";
 
         cd = "z";
-        clipCopy = "xclip -sel clip";
-        clipPaste = "xclip -sel clip -o";
         cat = "${pkgs.bat}/bin/bat";
         rm = "${pkgs.trash-cli}/bin/trash";
         open = "xdg-open";
