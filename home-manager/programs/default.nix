@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   imports = [
     ./zsh.nix
     ./git.nix
@@ -11,7 +12,9 @@
   ];
 
   programs = {
-    bat = { enable = true; };
+    bat = {
+      enable = true;
+    };
 
     obs-studio = {
       enable = true;
@@ -19,8 +22,10 @@
     };
 
     spicetify =
-      let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-      in {
+      let
+        spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+      in
+      {
         enable = true;
         enabledExtensions = with spicePkgs.extensions; [
           shuffle
@@ -37,16 +42,20 @@
     lazygit.enable = true;
     readline.enable = true;
 
-    neovim = {
-      enable = true;
-      extraLuaPackages = ps: [ ps.magick ];
-      defaultEditor = true;
-    };
+    # neovim = {
+    #   enable = true;
+    #   extraLuaPackages = ps: [ ps.magick ];
+    #   defaultEditor = true;
+    # };
 
     btop.enable = true;
-    fzf = { enable = true; };
+    fzf = {
+      enable = true;
+    };
     yt-dlp.enable = true;
-    gh = { enable = true; };
+    gh = {
+      enable = true;
+    };
 
     # vscode = {
     #   enable = true;

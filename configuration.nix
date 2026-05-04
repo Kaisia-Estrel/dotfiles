@@ -1,15 +1,29 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, options, config, username, inputs, overlays, ... }: {
+{
+  pkgs,
+  options,
+  config,
+  username,
+  inputs,
+  overlays,
+  ...
+}:
+{
 
-  imports = [ ./hardware-configuration.nix ./network.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./network.nix
+  ];
 
   boot = {
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     supportedFilesystems = [ "ntfs" ];
-    plymouth = { enable = true; };
+    plymouth = {
+      enable = true;
+    };
     loader = {
       grub = {
         enable = true;
@@ -34,7 +48,9 @@
   stylix = {
     enable = true;
     targets = {
-      grub = { enable = true; };
+      grub = {
+        enable = true;
+      };
       # firefox.profileNames = [ ];
 
       gtk.enable = true;
@@ -93,28 +109,45 @@
 
   networking = {
     hostName = "nixos";
-    timeServers = [ "ntp.ubuntu.com" ]
-      ++ options.networking.timeServers.default;
+    timeServers = [ "ntp.ubuntu.com" ] ++ options.networking.timeServers.default;
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 3000 80 443 17500 8080 9100 50001 57621 ];
+      allowedTCPPorts = [
+        3000
+        80
+        443
+        17500
+        8080
+        9100
+        50001
+        57621
+      ];
       # 50001: codeium
       # 57621: spotify
-      allowedUDPPorts = [ 17500 8080 5353 ]; # 175000 for Dropbox
+      allowedUDPPorts = [
+        17500
+        8080
+        5353
+      ]; # 175000 for Dropbox
       # 5353: spotify
-      allowedTCPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      }]; # KDE Connect
-      allowedUDPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      }]; # KDE Connect
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ]; # KDE Connect
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ]; # KDE Connect
     };
   };
 
   services = {
+    vsftpd.enable = true;
 
     udisks2.enable = true;
     tlp = {
@@ -138,7 +171,9 @@
       };
     };
 
-    locate = { enable = true; };
+    locate = {
+      enable = true;
+    };
     xserver = {
       enable = true;
       xkb = {
@@ -181,7 +216,9 @@
 
     pipewire = {
       enable = true;
-      wireplumber = { enable = true; };
+      wireplumber = {
+        enable = true;
+      };
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
@@ -194,11 +231,16 @@
       openFirewall = true;
     };
 
-    resolved = { enable = true; };
+    resolved = {
+      enable = true;
+    };
 
     printing = {
       enable = true;
-      drivers = [ pkgs.cnijfilter2 pkgs.gutenprint ];
+      drivers = [
+        pkgs.cnijfilter2
+        pkgs.gutenprint
+      ];
     };
     ipp-usb.enable = true;
 
@@ -251,7 +293,9 @@
     };
   };
 
-  systemd.sleep.settings.Sleep = { HibernateDelaySec = "15m"; };
+  systemd.sleep.settings.Sleep = {
+    HibernateDelaySec = "15m";
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -264,14 +308,18 @@
     #   enable = true;
     #   indicator = true;
     # };
-    sway = { enable = true; };
+    sway = {
+      enable = true;
+    };
     # river = { enable = true; };
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
-    waybar = { enable = true; };
+    waybar = {
+      enable = true;
+    };
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -313,6 +361,7 @@
       "video"
       "docker"
       "wheel"
+      "dialout"
       "libvirtd"
       "input"
       "kvm"
@@ -352,7 +401,10 @@
       lxqt.lxqt-policykit
       where-is-my-sddm-theme-catppuccin
     ];
-    shells = with pkgs; [ bashInteractive zsh ];
+    shells = with pkgs; [
+      bashInteractive
+      zsh
+    ];
   };
 
   fonts = {
@@ -369,7 +421,13 @@
       times-newer-roman
       nerd-fonts.jetbrains-mono
       (google-fonts.override {
-        fonts = [ "Space Grotesk" "Roboto" "Bebas Neue" "Anton" "EB Garamond" ];
+        fonts = [
+          "Space Grotesk"
+          "Roboto"
+          "Bebas Neue"
+          "Anton"
+          "EB Garamond"
+        ];
       })
       newcomputermodern
       source-sans-pro
@@ -380,7 +438,10 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
     configPackages = [
       pkgs.xdg-desktop-portal-gtk
       inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
@@ -396,7 +457,7 @@
   };
   hardware = {
 
-    # Scanners 
+    # Scanners
     sane = {
       enable = true;
       extraBackends = [ pkgs.sane-airscan ];
@@ -442,16 +503,25 @@
   nix = {
 
     settings = {
-      trusted-users = [ "root" username ];
+      trusted-users = [
+        "root"
+        username
+      ];
       auto-optimise-store = true;
       allow-import-from-derivation = "true";
       download-buffer-size = 167108864;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       trusted-public-keys = [
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
-      substituters = [ "https://cache.iog.io" "https://hyprland.cachix.org" ];
+      substituters = [
+        "https://cache.iog.io"
+        "https://hyprland.cachix.org"
+      ];
     };
 
     gc = {

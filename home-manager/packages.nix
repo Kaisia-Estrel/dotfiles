@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     (fenix.complete.withComponents [
       "cargo"
@@ -23,9 +24,11 @@
     manix
     dart-sass
     xmlstarlet
-    (ags.overrideAttrs
-      (old: { buildInputs = old.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ]; }))
+    (ags.overrideAttrs (old: {
+      buildInputs = old.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ];
+    }))
     imagemagick
+    neovim
     # python312Packages.python-lsp-server
     ruff
     # davinci-resolve

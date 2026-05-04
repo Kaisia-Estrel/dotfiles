@@ -1,4 +1,11 @@
-{ username, config, inputs, pkgs, ... }: {
+{
+  username,
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
@@ -48,5 +55,7 @@
     };
   };
 
-  xsession = { numlock.enable = true; };
+  xsession = {
+    numlock.enable = true;
+  };
 }
