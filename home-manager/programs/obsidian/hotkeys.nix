@@ -1,8 +1,17 @@
 {
-  "workspace:close" = [{
-    "modifiers" = [ "Alt" ];
-    "key" = "X";
-  }];
+  "workspace:close" = [
+    {
+      "modifiers" = [ "Alt" ];
+      "key" = "X";
+    }
+  ];
+
+  "file-explorer:open" = [
+    {
+      "modifiers" = [ "Alt" ];
+      "key" = "e";
+    }
+  ];
 
   "workspace:next-tab" = [
     {
@@ -20,7 +29,10 @@
   ];
   "workspace:previous-tab" = [
     {
-      "modifiers" = [ "Ctrl" "Shift" ];
+      "modifiers" = [
+        "Ctrl"
+        "Shift"
+      ];
       "key" = "Tab";
     }
     {
@@ -33,9 +45,10 @@
     }
   ];
   "switcher:open" = [ ];
-  "darlal-switcher-plus:switcher-plus:open" = [{
-    "modifiers" = [ "Mod" ];
-    "key" = " ";
-  }];
+  "darlal-switcher-plus:switcher-plus:open" = [
+    {
+      "modifiers" = [ "Mod" ];
+      "key" = " ";
+    }
+  ];
 }
-
