@@ -501,7 +501,6 @@
   nixpkgs.overlays = overlays;
   nixpkgs.config.allowUnfree = true;
   nix = {
-
     settings = {
       trusted-users = [
         "root"
@@ -513,6 +512,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "pipe-operators"
       ];
       trusted-public-keys = [
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
