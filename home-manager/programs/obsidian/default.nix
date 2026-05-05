@@ -21,6 +21,9 @@ in
 
   programs.obsidian = {
     enable = true;
+    cli = {
+      enable = true;
+    };
     defaultSettings = {
       communityPlugins = map (x: {
         enable = true;

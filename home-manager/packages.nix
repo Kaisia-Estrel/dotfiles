@@ -51,7 +51,7 @@
     (discord.override { withVencord = true; })
     # betterdiscordctl
     element-desktop
-    nodePackages_latest.bash-language-server
+    bash-language-server
     kdePackages.kdenlive
     krita
     zathura
@@ -73,7 +73,7 @@
     taplo
 
     prismlauncher
-    nodePackages.typescript
+    typescript
     ispell
     texlive.combined.scheme-full
     imagemagick
@@ -136,7 +136,7 @@
     devenv
 
     marksman
-    nodePackages.cspell
+    cspell
     # nodePackages.vscode-json-languageserver
     nodejs
     gpick

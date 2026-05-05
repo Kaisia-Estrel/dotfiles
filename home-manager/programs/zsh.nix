@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   programs = {
     direnv = {
       enable = true;
@@ -32,16 +33,11 @@
         detach = "kitten @ detach-window";
         clone = "kitty --detach";
 
-        ls =
-          "${pkgs.eza}/bin/eza -hF --color=always --icons --sort=size --group-directories-first";
-        la =
-          "${pkgs.eza}/bin/eza -haF --color=always --icons --sort=size --group-directories-first";
-        l =
-          "${pkgs.eza}/bin/eza -lhF --color=always --icons --sort=size --group-directories-first";
-        ll =
-          "${pkgs.eza}/bin/eza -lahF --color=always --icons --sort=size --group-directories-first";
-        lst =
-          "${pkgs.eza}/bin/eza -lahTF --color=always --icons --sort=size --group-directories-first";
+        ls = "${pkgs.eza}/bin/eza -hF --color=always --icons --sort=size --group-directories-first";
+        la = "${pkgs.eza}/bin/eza -haF --color=always --icons --sort=size --group-directories-first";
+        l = "${pkgs.eza}/bin/eza -lhF --color=always --icons --sort=size --group-directories-first";
+        ll = "${pkgs.eza}/bin/eza -lahF --color=always --icons --sort=size --group-directories-first";
+        lst = "${pkgs.eza}/bin/eza -lahTF --color=always --icons --sort=size --group-directories-first";
         mkignore = "forgit::ignore";
 
         cd = "z";
@@ -51,7 +47,9 @@
         icat = "kitty +kitten icat";
       };
 
-      autosuggestion = { enable = true; };
+      autosuggestion = {
+        enable = true;
+      };
       enableCompletion = true;
       completionInit = ''
         autoload -U +X compinit && compinit
@@ -62,7 +60,6 @@
       sessionVariables = {
         HISTFILE = "${config.xdg.stateHome}/zsh/history";
         NEOVIDE_MULTIGRID = "true";
-        AUTO_NOTIFY_IGNORE = import ./auto-notify-ignore.nix;
         EDITOR = "${pkgs.neovim}/bin/nvim";
       };
 
@@ -164,23 +161,9 @@
         HEREDOC
         }
 
-        function swap_esc() {
-                  cat <<HEREDOC | xmodmap -
-                      clear lock
-                      keycode 9 = Caps_Lock
-                      keycode 66 = Escape
-        HEREDOC
-        }
-        function unswap_esc() {
-                  cat <<HEREDOC | xmodmap -
-                      keycode 66 = Caps_Lock
-                      keycode 9 = Escape
-        HEREDOC
-        }
-
-        function copyTxt() {
-          echo -n "$1" | xclip -sel clip
-        }
+        AUTO_NOTIFY_IGNORE=(
+          ${builtins.concatStringsSep "\n" (map (x: "\"${x}\"") (import ./auto-notify-ignore.nix))}
+        )
 
         function run() {
           nix run "nixpkgs#$1" -- ''${*[@]:2}

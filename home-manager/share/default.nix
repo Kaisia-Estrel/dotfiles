@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
 
   home.file.".local/share/dict" = {
     recursive = true;
@@ -10,6 +11,7 @@
     userDirs = {
       enable = true;
       createDirectories = true;
+      setSessionVariables = true;
     };
     mimeApps = {
       enable = true;
@@ -40,20 +42,25 @@
           "text/x-c++"
         ];
         exec = "${config.xdg.configHome}/emacs/bin/doom run";
-        categories = [ "Development" "TextEditor" ];
+        categories = [
+          "Development"
+          "TextEditor"
+        ];
       };
       "PureRef" = {
         type = "Application";
         terminal = false;
         name = "PureRef";
         icon = ./data/PureRef.png;
-        exec = let
-          pureRef = pkgs.requireFile {
-            name = "PureRef-2.1.0_x64.Appimage";
-            sha256 = "0whrixslxwml61b244n1czyidd5jw4041vvwb2klyyii15nfc3ab";
-            url = "https://www.pureref.com/download.php";
-          };
-        in "${pkgs.appimage-run}/bin/appimage-run ${pureRef}";
+        exec =
+          let
+            pureRef = pkgs.requireFile {
+              name = "PureRef-2.1.2_x64.Appimage";
+              sha256 = "16fwpxw402wrxlbb66lrhsgacmvyjbpjrglpl5ps7kvkamb9cpav";
+              url = "https://www.pureref.com/download.php";
+            };
+          in
+          "${pkgs.appimage-run}/bin/appimage-run ${pureRef}";
       };
     };
   };
@@ -70,7 +77,12 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.theme = config.gtk.theme;
   };
 }

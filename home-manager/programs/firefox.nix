@@ -6,7 +6,8 @@ let
     rev = "6488ff1934c184a7b81770c67f5c3b5e983152e3";
     sha256 = "sha256-9InO33jS+YP+aupQc8OadvGSyXEIBcTbN8kTo91hAbY=";
   };
-in {
+in
+{
 
   stylix.targets.firefox.profileNames = [ "default" ];
 
@@ -21,6 +22,7 @@ in {
   };
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles.default = {
       isDefault = true;
 
@@ -28,97 +30,114 @@ in {
         default = "ddg";
         engines = {
           "NLab" = {
-            urls = [{
-              template =
-                "https://www.google.com/search?as_q={searchTerms}&as_sitesearch=https%3A%2F%2Fncatlab.org%2Fnlab%2F";
-            }];
+            urls = [
+              {
+                template = "https://www.google.com/search?as_q={searchTerms}&as_sitesearch=https%3A%2F%2Fncatlab.org%2Fnlab%2F";
+              }
+            ];
             icon = "https://ncatlab.org/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@nlab" ];
           };
           "Stack Overflow" = {
-            urls = [{
-              template = "https://stackoverflow.com/search?q={searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://stackoverflow.com/search?q={searchTerms}";
+              }
+            ];
             icon = "https://scholar.google.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@stack" ];
           };
           "Google Scholar" = {
-            urls = [{
-              template = "https://scholar.google.com/scholar?q={searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://scholar.google.com/scholar?q={searchTerms}";
+              }
+            ];
             icon = "https://scholar.google.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@edu" ];
           };
           "Webster Thesaurus" = {
-            urls = [{
-              template =
-                "https://www.merriam-webster.com/thesaurus/{searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://www.merriam-webster.com/thesaurus/{searchTerms}";
+              }
+            ];
             icon = "https://www.merriam-webster.com/favicon.svg";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@th" ];
           };
           "Webster Dictionary" = {
-            urls = [{
-              template =
-                "https://www.merriam-webster.com/dictionary/{searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://www.merriam-webster.com/dictionary/{searchTerms}";
+              }
+            ];
             icon = "https://www.merriam-webster.com/favicon.svg";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@di" ];
           };
           "Hackage" = {
-            urls = [{
-              template =
-                "https://hackage.haskell.org/packages/search?terms={searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://hackage.haskell.org/packages/search?terms={searchTerms}";
+              }
+            ];
             icon = "https://hackage.haskell.org/static/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@hkg" ];
           };
           "Hoogle" = {
-            urls = [{
-              template = "https://hoogle.haskell.org/?hoogle={searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://hoogle.haskell.org/?hoogle={searchTerms}";
+              }
+            ];
             icon = "https://hoogle.haskell.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@hs" ];
           };
+          "Noogle" = {
+            urls = [ { template = "https://noogle.dev/q/?term={searchTerms}"; } ];
+            icon = "https://noogle.dev/favicon.ico";
+            updateInterval = 24 * 60 * 60 * 1000;
+            definedAliases = [ "@ngl" ];
+          };
           "Nix" = {
-            urls =
-              [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
+            urls = [ { template = "https://mynixos.com/search?q={searchTerms}"; } ];
             icon = "https://mynixos.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@nix" ];
           };
           "NixOS Wiki" = {
-            urls = [{
-              template =
-                "https://wiki.nixos.org/index.php?search={searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://wiki.nixos.org/index.php?search={searchTerms}";
+              }
+            ];
             icon = "https://wiki.nixos.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "@nixw" ];
           };
           "Nix Packages" = {
-            urls = [{
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "type";
-                  value = "packages";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }];
-            icon =
-              "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "@nixp" ];
           };
         };
