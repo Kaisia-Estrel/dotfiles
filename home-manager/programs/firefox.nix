@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   shyfox = pkgs.fetchFromGitHub {
     owner = "Naezr";
@@ -10,15 +15,21 @@ in
 {
 
   stylix.targets.firefox.profileNames = [ "default" ];
+  home = {
+    file = {
 
-  home.file."${config.programs.firefox.configPath}/default/chrome/ShyFox" = {
-    recursive = true;
-    source = "${shyfox}/chrome/ShyFox";
-  };
+      "${config.programs.firefox.configPath}/default/chrome/ShyFox" = {
+        recursive = true;
+        source = "${shyfox}/chrome/ShyFox";
+      };
 
-  home.file."${config.programs.firefox.configPath}/default/chrome/icons" = {
-    recursive = true;
-    source = "${shyfox}/chrome/icons";
+      "${config.programs.firefox.configPath}/default/search.json.mozlz4".force = lib.mkForce true;
+
+      "${config.programs.firefox.configPath}/default/chrome/icons" = {
+        recursive = true;
+        source = "${shyfox}/chrome/icons";
+      };
+    };
   };
   programs.firefox = {
     enable = true;

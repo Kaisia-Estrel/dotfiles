@@ -156,5 +156,6 @@
     tinymist
     typst-live
     websocat
+    wtype
   ];
 }

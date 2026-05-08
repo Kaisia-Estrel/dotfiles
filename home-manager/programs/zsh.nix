@@ -169,6 +169,10 @@
           nix run "nixpkgs#$1" -- ''${*[@]:2}
         }
 
+        function cpfile() {
+          wl-copy -t 'text/uri-list' "file://$(realpath "$1")"
+        }
+
         compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
       '';
     };
