@@ -21,20 +21,6 @@
       plugins = [ pkgs.obs-studio-plugins.wlrobs ];
     };
 
-    spicetify =
-      let
-        spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-      in
-      {
-        enable = true;
-        enabledExtensions = with spicePkgs.extensions; [
-          shuffle
-          keyboardShortcut
-          fullAppDisplay
-          copyLyrics
-        ];
-      };
-
     mpv.enable = true;
 
     # eww.enable = true;

@@ -1,8 +1,6 @@
 {
   username,
   config,
-  inputs,
-  pkgs,
   ...
 }:
 {
@@ -24,7 +22,6 @@
   };
 
   imports = [
-    inputs.spicetify-nix.homeManagerModules.default
     ./packages.nix
     ./programs
     ./services

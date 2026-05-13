@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     (fenix.complete.withComponents [
@@ -157,5 +157,7 @@
     typst-live
     websocat
     wtype
+
+    inputs.tree-sitter.packages.${stdenv.hostPlatform.system}.cli
   ];
 }

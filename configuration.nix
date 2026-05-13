@@ -51,8 +51,6 @@
       grub = {
         enable = true;
       };
-      # firefox.profileNames = [ ];
-
       gtk.enable = true;
       lightdm.enable = false;
     };
@@ -171,6 +169,11 @@
       };
     };
 
+    earlyoom = {
+      enable = true;
+      enableNotifications = true;
+    };
+
     locate = {
       enable = true;
     };
@@ -245,7 +248,6 @@
     ipp-usb.enable = true;
 
     blueman.enable = true;
-    # Did you read the comment?
 
     samba = {
       enable = true;
@@ -294,7 +296,7 @@
   };
 
   systemd.sleep.settings.Sleep = {
-    HibernateDelaySec = "15m";
+    HibernateDelaySec = "5m";
   };
 
   # Configure network proxy if necessary
@@ -332,8 +334,6 @@
   virtualisation = {
 
     docker.enable = true;
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
     waydroid.enable = true;
     libvirtd.enable = true;
   };

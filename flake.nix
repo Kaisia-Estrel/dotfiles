@@ -19,29 +19,41 @@
     };
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     eza.url = "github:eza-community/eza";
     devenv.url = "github:cachix/devenv/latest";
-
+    tree-sitter.url = "github:tree-sitter/tree-sitter";
   };
 
-  outputs = { nixpkgs, fenix, home-manager, stylix, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      fenix,
+      home-manager,
+      stylix,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       username = "truff";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ fenix.overlays.default (import ./overlays) ];
+        overlays = [
+          fenix.overlays.default
+          (import ./overlays)
+        ];
         config.allowUnfree = true;
       };
-    in {
+    in
+    {
       nixosConfigurations = {
         "nixos" = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             # inherit pkgs;
-            overlays = [ fenix.overlays.default (import ./overlays) ];
+            overlays = [
+              fenix.overlays.default
+              (import ./overlays)
+            ];
             inherit system;
             inherit username;
           };
@@ -58,7 +70,6 @@
                   inherit username;
                   inherit pkgs;
                 };
-                # useGlobalPkgs = true;
                 useUserPackages = true;
                 users.${username} = import ./home-manager/home.nix;
               };
