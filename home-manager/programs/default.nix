@@ -1,7 +1,7 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
-    ./zsh.nix
+    ./nushell
     ./git.nix
     ./firefox.nix
     ./kitty.nix
@@ -23,16 +23,8 @@
 
     mpv.enable = true;
 
-    # eww.enable = true;
-
     lazygit.enable = true;
     readline.enable = true;
-
-    # neovim = {
-    #   enable = true;
-    #   extraLuaPackages = ps: [ ps.magick ];
-    #   defaultEditor = true;
-    # };
 
     btop.enable = true;
     fzf = {

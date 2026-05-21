@@ -327,7 +327,6 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
-    zsh.enable = true;
     dconf.enable = true;
     seahorse.enable = true;
   };
@@ -368,7 +367,7 @@
       "adbusers"
       "fuse"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
     packages = [ ];
   };
 
@@ -403,7 +402,7 @@
     ];
     shells = with pkgs; [
       bashInteractive
-      zsh
+      nushell
     ];
   };
 

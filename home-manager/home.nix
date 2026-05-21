@@ -1,4 +1,5 @@
 {
+  pkgs,
   username,
   config,
   ...
@@ -9,6 +10,9 @@
     homeDirectory = "/home/${username}";
     preferXdgDirectories = true;
     stateVersion = "23.05";
+    shell = {
+      enableNushellIntegration = true;
+    };
     # pointerCursor.size = 64;
     sessionVariables = with config.xdg; {
       HISTFILE = "${stateHome}/bash/history";
@@ -18,6 +22,26 @@
       GNUPGHOME = "${dataHome}/gnupg";
       XCOMPOSECACHE = "${cacheHome}/x11/xcompose";
       ERRFILE = "${cacheHome}/X11/xsession-errors";
+      NEOVIDE_MULTIGRID = "true";
+      EDITOR = "${pkgs.neovim}/bin/nvim";
+      NIXOS_OZONE_WL = "1";
+    };
+
+    shellAliases = {
+      ytmp3 = "yt-dlp -f 'ba' -x --audio-format mp3";
+      detach = "kitten @ detach-window";
+      clone = "kitty --detach";
+      cat = "bat";
+      cd = "z";
+      icat = "kitty +kitten icat";
+      py = "python";
+    };
+
+    sessionSearchVariables = {
+      XDG_DATA_DIRS = [
+        "/var/lib/flatpak/exports/share"
+        "${config.home.homeDirectory}/.local/share/flatpak/exports/share"
+      ];
     };
   };
 
