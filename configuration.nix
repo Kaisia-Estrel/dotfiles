@@ -371,6 +371,12 @@
 
   environment = {
 
+    sessionVariables = {
+      NEOVIDE_MULTIGRID = "true";
+      EDITOR = "${pkgs.neovim}/bin/nvim";
+      NIXOS_OZONE_WL = "1";
+    };
+
     etc."dict.conf".text = "server dict.org";
     systemPackages = with pkgs; [
       vim

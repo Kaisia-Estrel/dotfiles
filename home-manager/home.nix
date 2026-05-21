@@ -13,19 +13,6 @@
     shell = {
       enableNushellIntegration = true;
     };
-    # pointerCursor.size = 64;
-    sessionVariables = with config.xdg; {
-      HISTFILE = "${stateHome}/bash/history";
-      CABAL_CONFIG = "${configHome}/cabal/config";
-      CABAL_DIR = "${dataHome}/cabal";
-      CARGO_HOME = "${dataHome}/cargo";
-      GNUPGHOME = "${dataHome}/gnupg";
-      XCOMPOSECACHE = "${cacheHome}/x11/xcompose";
-      ERRFILE = "${cacheHome}/X11/xsession-errors";
-      NEOVIDE_MULTIGRID = "true";
-      EDITOR = "${pkgs.neovim}/bin/nvim";
-      NIXOS_OZONE_WL = "1";
-    };
 
     shellAliases = {
       ytmp3 = "yt-dlp -f 'ba' -x --audio-format mp3";
