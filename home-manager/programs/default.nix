@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./niri
     ./nushell
     ./git.nix
     ./firefox.nix

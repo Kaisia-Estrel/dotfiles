@@ -204,7 +204,7 @@
         theme = "where-is-my-sddm-theme-catppuccin";
         package = pkgs.kdePackages.sddm;
       };
-      defaultSession = "hyprland";
+      defaultSession = "niri";
     };
     upower.enable = true;
     logind.settings.Login = {
@@ -313,10 +313,8 @@
     sway = {
       enable = true;
     };
-    # river = { enable = true; };
-    hyprland = {
+    niri = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
     waybar = {

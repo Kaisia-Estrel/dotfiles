@@ -22,6 +22,7 @@
     eza.url = "github:eza-community/eza";
     devenv.url = "github:cachix/devenv/latest";
     tree-sitter.url = "github:tree-sitter/tree-sitter";
+    niri-float-sticky.url = "github:probeldev/niri-float-sticky";
   };
 
   outputs =
