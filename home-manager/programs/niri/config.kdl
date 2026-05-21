@@ -2,13 +2,12 @@ prefer-no-csd
 
 spawn-at-startup "niri-float-sticky"
 spawn-at-startup "awww-daemon"
-spawn-at-startup "~/.config/niri/on-workspace-change.sh"
 
 environment {
     QT_QPA_PLATFORM "wayland"
     DISPLAY null
-    AWWW_TRANSITION_DURATION "0.75"
-    AWWW_TRANSITION "wipe"
+    AWWW_TRANSITION_DURATION "0.25"
+    // AWWW_TRANSITION "wipe"
 }
 
 input {
@@ -251,3 +250,4 @@ window-rule {
 }
 
 spawn-at-startup "obsidian"
+spawn-at-startup "~/.config/niri/on-workspace-change.sh"

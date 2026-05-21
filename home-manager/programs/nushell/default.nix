@@ -27,15 +27,15 @@ in
         display = [
           {
             style = "bold white";
-            threshold = 75;
+            threshold = 30;
           }
           {
             style = "bold orange";
-            threshold = 40;
+            threshold = 20;
           }
           {
             style = "bold red";
-            threshold = 30;
+            threshold = 10;
           }
         ];
       };
