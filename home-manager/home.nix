@@ -50,7 +50,6 @@
     ./programs
     ./services
     ./share
-    ./hyprland
   ];
 
   stylix.enable = true;
