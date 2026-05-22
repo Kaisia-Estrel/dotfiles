@@ -21,7 +21,13 @@ export def --wrapped run [
     }
   } catch { |err|
     if $err.msg == "Input type not supported." {
-      panic $err.rendered
+      error make {
+        msg: $"Unable to parse url"
+        label: {
+          text: "Invalid URL"
+          span: (metadata $derivation).span
+        }
+      }
     }
   } 
 
@@ -125,4 +131,15 @@ export def cpfile [ file?: string ]: oneof<nothing, string, list<string>> -> not
   } else {
     wl-copy -t 'text/uri-list' $"file://($file | path expand)"
   }
+}
+
+# get the most recent files in a directory
+export def recent [
+  n?: int # Most recent n items (default 1)
+  --only-name # Only return the file name
+] {
+  ls
+    | sort-by modified
+    | if ($n | is-empty) { last } else { last $n }
+    | if $only_name { get name } else { $in }
 }
