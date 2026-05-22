@@ -1,0 +1,171 @@
+{
+  "obsidian-git": {
+    "version": "2.38.3",
+    "assets": {
+      "main.js": {
+        "url": "https://github.com/Vinzent03/obsidian-git/releases/download/2.38.3/main.js",
+        "sha256": "sha256:1x92lhjkxii7h1mm7pikjb96pg34jzc1gwm9nikllp156jvd1z4p"
+      },
+      "styles.css": {
+        "url": "https://github.com/Vinzent03/obsidian-git/releases/download/2.38.3/styles.css",
+        "sha256": "sha256:0bcjwry89rc90ip39b28skgplzq8g5f4r1kpwp8ippdlsps97azm"
+      },
+      "obsidian-git-2.38.3.zip": {
+        "url": "https://github.com/Vinzent03/obsidian-git/releases/download/2.38.3/obsidian-git-2.38.3.zip",
+        "sha256": "sha256:1x633ri5a1s5i5mjavg2h5i2gwnsvg9wn9ldz16z1a1mgv19v2qr"
+      },
+      "manifest.json": {
+        "url": "https://github.com/Vinzent03/obsidian-git/releases/download/2.38.3/manifest.json",
+        "sha256": "sha256:11dychpzy0z3wvp5q0ig2643mga2da29llwzk0ay6zh295lfzw16"
+      }
+    }
+  },
+  "calendar": {
+    "version": "2.0.0-beta.2",
+    "assets": {
+      "main.js": {
+        "url": "https://github.com/liamcain/obsidian-calendar-plugin/releases/download/2.0.0-beta.2/main.js",
+        "sha256": "sha256:1dzvb0wn8k5ipz7vpxi3zipl0z51w31ca8n99dr4ccl0433cdlb4"
+      },
+      "manifest.json": {
+        "url": "https://github.com/liamcain/obsidian-calendar-plugin/releases/download/2.0.0-beta.2/manifest.json",
+        "sha256": "sha256:12f6indrzhdnfllln90fh0a0fcwk5pp3h99rx8bhn9x255ww2kri"
+      },
+      "styles.css": {
+        "url": "https://github.com/liamcain/obsidian-calendar-plugin/releases/download/2.0.0-beta.2/styles.css",
+        "sha256": "sha256:0lh8q9j4f3xnhp185f30pb588l0yyninadl582g9nhzkfq04ass8"
+      }
+    }
+  },
+  "darlal-switcher-plus": {
+    "version": "6.1.2",
+    "assets": {
+      "dist.zip": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/dist.zip",
+        "sha256": "sha256:1mb0ay7lf9da48vwqyfahnymvwh7zxbvrxg5lsmij608jwzs92na"
+      },
+      "versions.json": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/versions.json",
+        "sha256": "sha256:0yhk9gfqr3ap62gh4li6dxbvi84dx6lcg481cg4aqrd8y08q2gl8"
+      },
+      "styles.css": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/styles.css",
+        "sha256": "sha256:1yx0fyyl22jvwmm4hhf3xpwilwwmk2f4z7anidxsjqi3xqmrardx"
+      },
+      "manifest.json": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/manifest.json",
+        "sha256": "sha256:1w0x96zka1s6cvxdc2fing2vsgkpx3aazwkxihb2caasqf4lp5sz"
+      },
+      "main.js": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/main.js",
+        "sha256": "sha256:0wzba9ag5fn6f8v3qbvmj28k5bf598691wn4mkg72m8pmn14ih74"
+      }
+    }
+  },
+  "obsidian-reminder-plugin": {
+    "version": "1.1.21",
+    "assets": {
+      "styles.css": {
+        "url": "https://github.com/uphy/obsidian-reminder/releases/download/1.1.21/styles.css",
+        "sha256": "sha256:02pb6cff78kaqsbpidv3axbmdgzmfbdl91sm6dsnhz41js33igwa"
+      },
+      "obsidian-reminder.zip": {
+        "url": "https://github.com/uphy/obsidian-reminder/releases/download/1.1.21/obsidian-reminder.zip",
+        "sha256": "sha256:1ay3jmayvqccnrpnb291ahy1bakl3p3031qrz6g6jalfgxffqh5g"
+      },
+      "main.js": {
+        "url": "https://github.com/uphy/obsidian-reminder/releases/download/1.1.21/main.js",
+        "sha256": "sha256:1ynwl8wdqj0ib1yd0sxf6lkbi8wcqshxcbzdndg71i26cfiq2x47"
+      },
+      "manifest.json": {
+        "url": "https://github.com/uphy/obsidian-reminder/releases/download/1.1.21/manifest.json",
+        "sha256": "sha256:0dz5xf2v6x9cy1gd3y3wry2imkkwac19qma756zvsxnczzg45mi0"
+      }
+    }
+  },
+  "obsidian-relativenumber": {
+    "version": "1.0.0",
+    "assets": {
+      "manifest.json": {
+        "url": "https://github.com/thisdotrob/obsidian-relativenumber-plugin/releases/download/1.0.0/manifest.json",
+        "sha256": "sha256:0q7zj5lcc6yrq6fc7vchaf8a28idyzh2mxgcyi059ad0qyhz60qn"
+      },
+      "main.js": {
+        "url": "https://github.com/thisdotrob/obsidian-relativenumber-plugin/releases/download/1.0.0/main.js",
+        "sha256": "sha256:046bvlkq0pdb8lln3rwjz1k7g5zmkxk0q0wjd399rk34q1xk1nmz"
+      }
+    }
+  },
+  "obsidian-latex-suite": {
+    "version": "1.11.5",
+    "assets": {
+      "styles.css": {
+        "url": "https://github.com/artisticat1/obsidian-latex-suite/releases/download/1.11.5/styles.css",
+        "sha256": "sha256:0w2x2s1fdsq38m1b4bnhwryajbl8hzdw60rb691hl2rlklkfr56f"
+      },
+      "main.js": {
+        "url": "https://github.com/artisticat1/obsidian-latex-suite/releases/download/1.11.5/main.js",
+        "sha256": "sha256:0vp0s45cr4d989wijn3lpfs677cbnh0b51v0g9blmr9lxg8l9npz"
+      },
+      "manifest.json": {
+        "url": "https://github.com/artisticat1/obsidian-latex-suite/releases/download/1.11.5/manifest.json",
+        "sha256": "sha256:1swabn3j25bw9gf586nxbvv8sxizsxsdwyqpks9myr0nrp3vr31s"
+      },
+      "obsidian-latex-suite.zip": {
+        "url": "https://github.com/artisticat1/obsidian-latex-suite/releases/download/1.11.5/obsidian-latex-suite.zip",
+        "sha256": "sha256:0fi52j8svh183mb9mx1gx9mrvn0k3vw6zgrfq6alnk7zk3b2hgi9"
+      }
+    }
+  },
+  "folder-notes": {
+    "version": "1.8.20-1-beta",
+    "assets": {
+      "main.js": {
+        "url": "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.20-1-beta/main.js",
+        "sha256": "sha256:0rx3i9b1piyd23xk8vi2hdcy5ic9mh7811914c6x6s830mc22j80"
+      },
+      "manifest.json": {
+        "url": "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.20-1-beta/manifest.json",
+        "sha256": "sha256:1qgbfha39xri333bprzf3y7brazxfrf7mggczx1hmxrs5qr88ncs"
+      },
+      "styles.css": {
+        "url": "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.20-1-beta/styles.css",
+        "sha256": "sha256:1nfrivrz9xbprany4i9w3xn80cfzninb0yqj24d83bqg4kqq3s8b"
+      }
+    }
+  },
+  "vim-yank-highlight": {
+    "version": "1.0.8",
+    "assets": {
+      "manifest.json": {
+        "url": "https://github.com/aleksey-rowan/obsidian-vim-yank-highlight/releases/download/1.0.8/manifest.json",
+        "sha256": "sha256:0lr0p06k5gpwv22zvf9jvvv93nysy17jgnr7c1sqcbk8n6jgjwjf"
+      },
+      "main.js": {
+        "url": "https://github.com/aleksey-rowan/obsidian-vim-yank-highlight/releases/download/1.0.8/main.js",
+        "sha256": "sha256:1y1h8pmc0fyg70rzjifs8mhx27hylmsdbnvg7q7xcrk4ybnmjsa6"
+      },
+      "styles.css": {
+        "url": "https://github.com/aleksey-rowan/obsidian-vim-yank-highlight/releases/download/1.0.8/styles.css",
+        "sha256": "sha256:01spk11axaiza0dsyf6dhi0hi88w71ylp9xplydp8zixavwv4m4a"
+      }
+    }
+  },
+  "vimium": {
+    "version": "1.0.0",
+    "assets": {
+      "main.js": {
+        "url": "https://github.com/karstenpedersen/obsidian-vimium/releases/download/1.0.0/main.js",
+        "sha256": "sha256:0j5bgxi4yyl85yd9vicig2id9kals31fkcwwjb0gn0fhxzdbpy6a"
+      },
+      "manifest.json": {
+        "url": "https://github.com/karstenpedersen/obsidian-vimium/releases/download/1.0.0/manifest.json",
+        "sha256": "sha256:0cj7a3xm4h9bl4rkcha5qjb8gyj2ahjxjjx89gbf12hi6l8p78wy"
+      },
+      "styles.css": {
+        "url": "https://github.com/karstenpedersen/obsidian-vimium/releases/download/1.0.0/styles.css",
+        "sha256": "sha256:1jjr481zar4ywbickixdcfhrwpy968yfnzvczh36qvvnq33c0905"
+      }
+    }
+  }
+}
