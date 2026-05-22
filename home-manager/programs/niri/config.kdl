@@ -2,6 +2,7 @@ prefer-no-csd
 
 spawn-at-startup "niri-float-sticky"
 spawn-at-startup "awww-daemon"
+spawn-at-startup "copyq"
 
 environment {
     QT_QPA_PLATFORM "wayland"
