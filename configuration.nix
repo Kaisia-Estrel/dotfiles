@@ -1,12 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   pkgs,
-  options,
   config,
   username,
-  inputs,
   overlays,
   ...
 }:
@@ -14,7 +9,7 @@
 
   imports = [
     ./hardware-configuration.nix
-    ./network.nix
+    ./options/network.nix
   ];
 
   boot = {
@@ -102,45 +97,6 @@
         desktop = 11;
         popups = 12;
       };
-    };
-  };
-
-  networking = {
-    hostName = "nixos";
-    timeServers = [ "ntp.ubuntu.com" ] ++ options.networking.timeServers.default;
-    networkmanager.enable = true;
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [
-        3000
-        80
-        443
-        17500
-        8080
-        9100
-        50001
-        57621
-      ];
-      # 50001: codeium
-      # 57621: spotify
-      allowedUDPPorts = [
-        17500
-        8080
-        5353
-      ]; # 175000 for Dropbox
-      # 5353: spotify
-      allowedTCPPortRanges = [
-        {
-          from = 1714;
-          to = 1764;
-        }
-      ]; # KDE Connect
-      allowedUDPPortRanges = [
-        {
-          from = 1714;
-          to = 1764;
-        }
-      ]; # KDE Connect
     };
   };
 
@@ -249,67 +205,18 @@
 
     blueman.enable = true;
 
-    samba = {
-      enable = true;
-      openFirewall = true;
-      settings = {
-        global = {
-          "workgroup" = "WORKGROUP";
-          "server string" = "smbnix";
-          "netbios name" = "smbnix";
-          security = "user";
-          #"use sendfile" = "yes";
-          #"max protocol" = "smb2";
-          # note: localhost is the ipv6 localhost ::1
-          "hosts allow" = "192.168.0. 127.0.0.1 localhost";
-          "hosts deny" = "0.0.0.0/0";
-          "guest account" = "nobody";
-          "map to guest" = "bad user";
-        };
-        "public" = {
-          "path" = "/mnt/Shares/Public";
-          "browseable" = "yes";
-          "read only" = "no";
-          "guest ok" = "yes";
-          "create mask" = "0644";
-          "directory mask" = "0755";
-          "force user" = "username";
-          "force group" = "groupname";
-        };
-        "private" = {
-          "path" = "/mnt/Shares/Private";
-          "browseable" = "yes";
-          "read only" = "no";
-          "guest ok" = "no";
-          "create mask" = "0644";
-          "directory mask" = "0755";
-          "force user" = "username";
-          "force group" = "groupname";
-        };
-      };
-    };
-
-    samba-wsdd = {
-      enable = true;
-      openFirewall = true;
-    };
   };
 
   systemd.sleep.settings.Sleep = {
     HibernateDelaySec = "5m";
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   powerManagement.enable = true;
 
   programs = {
-    # nm-applet = {
-    #   enable = true;
-    #   indicator = true;
-    # };
+    xwayland = {
+      enable = true;
+    };
     sway = {
       enable = true;
     };
@@ -492,6 +399,7 @@
   security.sudo.extraConfig = ''
     Defaults pwfeedback
   '';
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
