@@ -1,14 +1,6 @@
 { inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    (fenix.complete.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
-
     packet
     kdePackages.dolphin
 
@@ -40,7 +32,6 @@
     satty
     d2
     hyprpaper
-    rust-analyzer-nightly
     lua51Packages.luarocks-nix
     brightnessctl
     playerctl
@@ -137,7 +128,6 @@
 
     marksman
     cspell
-    # nodePackages.vscode-json-languageserver
     nodejs
     gpick
     wordnet
@@ -159,5 +149,6 @@
     wtype
 
     inputs.tree-sitter.packages.${stdenv.hostPlatform.system}.cli
+    nix-index
   ];
 }

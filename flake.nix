@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     eza.url = "github:eza-community/eza";
@@ -22,7 +18,6 @@
   outputs =
     {
       nixpkgs,
-      fenix,
       home-manager,
       stylix,
       ...
@@ -33,7 +28,6 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          fenix.overlays.default
           (import ./overlays)
         ];
         config.allowUnfree = true;
@@ -46,7 +40,6 @@
             inherit inputs;
             # inherit pkgs;
             overlays = [
-              fenix.overlays.default
               (import ./overlays)
             ];
             inherit system;
