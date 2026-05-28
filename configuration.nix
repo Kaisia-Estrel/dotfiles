@@ -281,6 +281,7 @@
     sessionVariables = {
       NEOVIDE_MULTIGRID = "true";
       EDITOR = "${pkgs.neovim}/bin/nvim";
+      TERMINAL = "${pkgs.kitty}/bin/kitty";
       NIXOS_OZONE_WL = "1";
     };
 

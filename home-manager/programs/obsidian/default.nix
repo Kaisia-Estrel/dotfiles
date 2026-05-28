@@ -32,20 +32,6 @@ let
       };
     }
   ) (pkgs.lib.importJSON ./plugin-urls.json);
-  # makePackage =
-  #   file:
-  #   let
-  #     manifest = pkgs.lib.importJSON (pkgs.lib.path.append file "manifest.json");
-  #   in
-  #   pkgs.stdenv.mkDerivation {
-  #     name = manifest.id;
-  #     src = file;
-  #
-  #     installPhase = ''
-  #       mkdir -p "$out"
-  #       install -D * "$out"
-  #     '';
-  #   };
 in
 {
 

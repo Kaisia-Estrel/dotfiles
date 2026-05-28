@@ -37,28 +37,20 @@
       }
     }
   },
-  "darlal-switcher-plus": {
-    "version": "6.1.2",
+  "obsidian-relative-line-numbers": {
+    "version": "3.1.0",
     "assets": {
-      "dist.zip": {
-        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/dist.zip",
-        "sha256": "sha256:1mb0ay7lf9da48vwqyfahnymvwh7zxbvrxg5lsmij608jwzs92na"
-      },
-      "versions.json": {
-        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/versions.json",
-        "sha256": "sha256:0yhk9gfqr3ap62gh4li6dxbvi84dx6lcg481cg4aqrd8y08q2gl8"
+      "manifest.json": {
+        "url": "https://github.com/nadavspi/obsidian-relative-line-numbers/releases/download/3.1.0/manifest.json",
+        "sha256": "sha256:0sqwrb5i0j2srwkbjylgxgwp9zdk1f5n5a0zxksr92d41fq6k679"
       },
       "styles.css": {
-        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/styles.css",
-        "sha256": "sha256:1yx0fyyl22jvwmm4hhf3xpwilwwmk2f4z7anidxsjqi3xqmrardx"
-      },
-      "manifest.json": {
-        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/manifest.json",
-        "sha256": "sha256:1w0x96zka1s6cvxdc2fing2vsgkpx3aazwkxihb2caasqf4lp5sz"
+        "url": "https://github.com/nadavspi/obsidian-relative-line-numbers/releases/download/3.1.0/styles.css",
+        "sha256": "sha256:00jwwgqf1k5majp8m42pym14y5fs71ll776rq9p6ks62b27xqnvh"
       },
       "main.js": {
-        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.2/main.js",
-        "sha256": "sha256:0wzba9ag5fn6f8v3qbvmj28k5bf598691wn4mkg72m8pmn14ih74"
+        "url": "https://github.com/nadavspi/obsidian-relative-line-numbers/releases/download/3.1.0/main.js",
+        "sha256": "sha256:19czwppgaky5palkslgd5yqf355d30c9j6fkjz1wrbckxrgrz6r6"
       }
     }
   },
@@ -80,19 +72,6 @@
       "manifest.json": {
         "url": "https://github.com/uphy/obsidian-reminder/releases/download/1.1.21/manifest.json",
         "sha256": "sha256:0dz5xf2v6x9cy1gd3y3wry2imkkwac19qma756zvsxnczzg45mi0"
-      }
-    }
-  },
-  "obsidian-relativenumber": {
-    "version": "1.0.0",
-    "assets": {
-      "manifest.json": {
-        "url": "https://github.com/thisdotrob/obsidian-relativenumber-plugin/releases/download/1.0.0/manifest.json",
-        "sha256": "sha256:0q7zj5lcc6yrq6fc7vchaf8a28idyzh2mxgcyi059ad0qyhz60qn"
-      },
-      "main.js": {
-        "url": "https://github.com/thisdotrob/obsidian-relativenumber-plugin/releases/download/1.0.0/main.js",
-        "sha256": "sha256:046bvlkq0pdb8lln3rwjz1k7g5zmkxk0q0wjd399rk34q1xk1nmz"
       }
     }
   },
@@ -151,6 +130,19 @@
       }
     }
   },
+  "edit-in-neovim": {
+    "version": "1.8.5",
+    "assets": {
+      "main.js": {
+        "url": "https://github.com/TheseusGrey/edit-in-neovim/releases/download/1.8.5/main.js",
+        "sha256": "sha256:0979zpimvqpr20b0jkdfj12ksq3fkpnbh0g3nxnrs8ci4pf66ncv"
+      },
+      "manifest.json": {
+        "url": "https://github.com/TheseusGrey/edit-in-neovim/releases/download/1.8.5/manifest.json",
+        "sha256": "sha256:1kxchmdgbbbvb6mw60xhvbq456qp3w00w4cnjz0pnygyyhlmcr2a"
+      }
+    }
+  },
   "vimium": {
     "version": "1.0.0",
     "assets": {
@@ -165,6 +157,65 @@
       "styles.css": {
         "url": "https://github.com/karstenpedersen/obsidian-vimium/releases/download/1.0.0/styles.css",
         "sha256": "sha256:1jjr481zar4ywbickixdcfhrwpy968yfnzvczh36qvvnq33c0905"
+      }
+    }
+  },
+  "flash-navigator": {
+    "version": "0.2.3",
+    "assets": {
+      "main.js": {
+        "url": "https://github.com/iyioon/obsidian-flash-nav/releases/download/0.2.3/main.js",
+        "sha256": "sha256:1l56hdma5saa2c6j1rz18q2ss8nlyamm1mlqvmq05ngag8nhvlaa"
+      },
+      "styles.css": {
+        "url": "https://github.com/iyioon/obsidian-flash-nav/releases/download/0.2.3/styles.css",
+        "sha256": "sha256:0vh5y938424f1gkn7za8n7c04ddhk9bv402xbxqrxfha8bkz3gqy"
+      },
+      "manifest.json": {
+        "url": "https://github.com/iyioon/obsidian-flash-nav/releases/download/0.2.3/manifest.json",
+        "sha256": "sha256:0q9hiz9yd0j3mhw8cpip6mkgv9sy6fsvi6ndhavb8liz9v5d8r9b"
+      },
+      "versions.json": {
+        "url": "https://github.com/iyioon/obsidian-flash-nav/releases/download/0.2.3/versions.json",
+        "sha256": "sha256:1zsh9xwxih0g1c1vmbrdgpvv4ym1kxs8yd6yz5byz773zdvxmrz7"
+      }
+    }
+  },
+  "more-vim": {
+    "version": "0.2.0",
+    "assets": {
+      "manifest.json": {
+        "url": "https://github.com/colinlienard/obsidian-more-vim/releases/download/0.2.0/manifest.json",
+        "sha256": "sha256:1nf1f7adxccbadr1hh5mb2900yhc4dspqzsl0jzhhnbywjqln7bk"
+      },
+      "main.js": {
+        "url": "https://github.com/colinlienard/obsidian-more-vim/releases/download/0.2.0/main.js",
+        "sha256": "sha256:0p1xf3a6ljd6fk6l53ay0vfccxn9vdnf8l9r2yx11iv4x3rdk5vp"
+      }
+    }
+  },
+  "obsidian-switcher-plus": {
+    "version": "6.1.3",
+    "assets": {
+      "dist.zip": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.3/dist.zip",
+        "sha256": "sha256:0zs59yi8p5z0i5m3r3pkskff94in1hg4bwjg1bazr31iypfd4mvj"
+      },
+      "versions.json": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.3/versions.json",
+        "sha256": "sha256:0c0v4nxjdnnd8ql9sd2mqlzpip8gcn4ppj9k95m3rxiwdwksdlml"
+      },
+      "styles.css": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.3/styles.css",
+        "sha256": "sha256:1rhj3r964a600k1k6ysqii13ibdddkyjv1xdzzxb7jn32z94jqyl"
+      },
+      "manifest.json": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.3/manifest.json",
+        "sha256": "sha256:07a6zxryy01qdb31b2cwmhqqkbml5dpk6w8r6079inaxw6al2vg0"
+      },
+      "main.js": {
+        "url": "https://github.com/darlal/obsidian-switcher-plus/releases/download/6.1.3/main.js",
+        "sha256": "sha256:1l52k4fs752if7a0hz0ng92qgfg0dwyydnsyvhfhy65bb9flwzrf"
       }
     }
   }

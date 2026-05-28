@@ -1,9 +1,12 @@
 calendar
-darlal-switcher-plus
 folder-notes
 obsidian-git
 obsidian-latex-suite
 vim-yank-highlight
 vimium
 obsidian-reminder-plugin
-obsidian-relativenumber
+more-vim
+flash-navigator
+edit-in-neovim
+obsidian-relative-line-numbers
+github:darlal/obsidian-switcher-plus

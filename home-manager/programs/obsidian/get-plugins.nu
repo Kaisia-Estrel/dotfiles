@@ -12,9 +12,20 @@ def traceIDFmt [format: string]: any -> any {
 
 def main [] {
   let community_plugins = http get 'https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json' 
-  let user_plugins = open ./plugins.txt | lines
+  let user_plugins = open ./plugins.txt 
+    | lines 
+    | where { not ($in | str starts-with "github:") }
+
+  let user_plugins_github = open ./plugins.txt 
+    | lines 
+    | where { str starts-with "github:" } 
+    | parse "github:{author}/{id}"
+    | insert repo {|x| $"($x.author)/($x.id)" }
+
   let plugin_infos = $community_plugins 
     | where { $in.id in $user_plugins } 
+    | append $user_plugins_github
+
   if ($user_plugins | any { $in not-in $plugin_infos.id } ) {
     let missing = $user_plugins 
       | where { $in not-in $plugin_infos.id } 
@@ -23,7 +34,6 @@ def main [] {
       msg: $"Could not find these plugins in 'plugins.txt': ($missing)"
     }
   }
-
 # graphql queries doesnt accept `-` but obsidian ids are in kebab-case
 # so you have to turn them to and from camelCase
   let toCamel = $plugin_infos 
@@ -103,6 +113,10 @@ def "main add-plugin" [...plugin_ids: string] {
     $community_plugins 
       | where { $in.id in $plugin_ids }
       | get id
+  }
+  if ($plugins.0 | is-empty) {
+    print $"(ansi red)No plugins specified, no plugins added"
+    return
   }
   open ./plugins.txt
     | lines
