@@ -148,7 +148,8 @@
     websocat
     wtype
 
-    inputs.tree-sitter.packages.${stdenv.hostPlatform.system}.cli
+    # inputs.tree-sitter.packages.${stdenv.hostPlatform.system}.cli
     nix-index
+    pairdrop
   ];
 }

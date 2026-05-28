@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     awww
     inputs.niri-float-sticky.packages.${stdenv.hostPlatform.system}.niri-float-sticky
+    xwayland-satellite
   ];
 
   home.file = {

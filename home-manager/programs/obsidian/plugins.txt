@@ -10,3 +10,5 @@ flash-navigator
 edit-in-neovim
 obsidian-relative-line-numbers
 github:darlal/obsidian-switcher-plus
+leader-hotkeys-obsidian
+obsidian-vimrc-support

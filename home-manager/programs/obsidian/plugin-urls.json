@@ -37,6 +37,36 @@
       }
     }
   },
+  "obsidian-vimrc-support": {
+    "version": "0.10.2",
+    "assets": {
+      "manifest.json": {
+        "url": "https://github.com/esm7/obsidian-vimrc-support/releases/download/0.10.2/manifest.json",
+        "sha256": "sha256:0mnh4yz53zx7lsyqpl4zjy3sb48l5mb83qw9jayqxf4iwd5mmpmj"
+      },
+      "main.js": {
+        "url": "https://github.com/esm7/obsidian-vimrc-support/releases/download/0.10.2/main.js",
+        "sha256": "sha256:1qkc9rrh92hy5cbm0vqy4zbgccn53f1cll220mg51wpf35776qv8"
+      }
+    }
+  },
+  "leader-hotkeys-obsidian": {
+    "version": "0.3.1",
+    "assets": {
+      "main.js": {
+        "url": "https://github.com/tgrosinger/leader-hotkeys-obsidian/releases/download/0.3.1/main.js",
+        "sha256": "sha256:1n8ynd2yldmzxf34hrjq15hfnpds6zchfpnqnkfz54ipsiwm9x3s"
+      },
+      "manifest.json": {
+        "url": "https://github.com/tgrosinger/leader-hotkeys-obsidian/releases/download/0.3.1/manifest.json",
+        "sha256": "sha256:078vyw7i8nl4qdmy6b6vgxjsdbk7401cskvvg7syz4wvgr1zi9yd"
+      },
+      "styles.css": {
+        "url": "https://github.com/tgrosinger/leader-hotkeys-obsidian/releases/download/0.3.1/styles.css",
+        "sha256": "sha256:08ijnyam50xg8vf3wa0c0awwipapc8k8zcm3y6y6716j42sjik6q"
+      }
+    }
+  },
   "obsidian-relative-line-numbers": {
     "version": "3.1.0",
     "assets": {
