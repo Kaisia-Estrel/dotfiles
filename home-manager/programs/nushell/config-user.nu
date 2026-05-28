@@ -143,3 +143,20 @@ export def recent [
     | if ($n | is-empty) { last } else { last $n }
     | if $only_name { get name } else { $in }
 }
+
+# Converts table data into Nix expressions
+export def "to nix" [
+  --raw (-r)
+  ]: any -> string { 
+  to json --serialize --raw
+    | $"($in)" 
+    | to json --raw # 2nd `to json` to escape quotes in string conversion
+    | nix eval --expr $"builtins.fromJSON ($in)" 
+    | if $raw { $in } else { nixfmt } 
+}
+
+# Parse text as a nix expression
+export def "from nix" []: string -> any {
+  nix eval --raw --expr $"builtins.toJSON ($in)" 
+    | from json
+}
