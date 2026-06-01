@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   plugin_settings = {
@@ -34,6 +34,12 @@ let
   ) (pkgs.lib.importJSON ./plugin-urls.json);
 in
 {
+
+  home.file = builtins.mapAttrs (_: v: {
+    inherit (v) enable;
+    target = "${v.target}/.obsidian.vimrc";
+    source = ./.obsidian.vimrc;
+  }) config.programs.obsidian.vaults;
 
   programs.obsidian = {
     enable = true;
