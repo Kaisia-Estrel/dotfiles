@@ -135,6 +135,9 @@
     };
     xserver = {
       enable = true;
+      windowManager.i3 = {
+        enable = true;
+      };
       xkb = {
         options = "caps:escape_shifted_capslock";
         layout = "us";

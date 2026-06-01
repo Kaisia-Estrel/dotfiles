@@ -151,5 +151,9 @@
     # inputs.tree-sitter.packages.${stdenv.hostPlatform.system}.cli
     nix-index
     pairdrop
+
+    rofi
+    dmenu
+    alacritty
   ];
 }
