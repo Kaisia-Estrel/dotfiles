@@ -155,5 +155,6 @@
     rofi
     dmenu
     alacritty
+    timg
   ];
 }

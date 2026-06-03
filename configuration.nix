@@ -125,9 +125,9 @@
       };
     };
 
-    earlyoom = {
+    nohang = {
       enable = true;
-      enableNotifications = true;
+      configPath = ./options/nohang.conf;
     };
 
     locate = {
