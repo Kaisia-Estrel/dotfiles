@@ -5,10 +5,9 @@ spawn-at-startup "awww-daemon"
 spawn-at-startup "copyq"
 
 environment {
-    QT_QPA_PLATFORM "wayland"
-    DISPLAY null
+    QT_QPA_PLATFORM "wayland;xcb"
+    DISPLAY ":1"
     AWWW_TRANSITION_DURATION "0.25"
-    // AWWW_TRANSITION "wipe"
 }
 
 input {
@@ -214,6 +213,7 @@ binds {
     Mod+Ctrl+T { spawn "niri-float-sticky" "-ipc" "toggle_sticky";  }
     Mod+N { spawn "swaync-client" "-t";  }
     Mod+Shift+N { spawn "swaync-client" "--hide-all";  }
+    Mod+Ctrl+N { spawn "swaync-client" "-d";  }
     Mod+Ctrl+V { spawn "copyq" "show";  }
     Mod+W { toggle-column-tabbed-display; }
 
@@ -236,6 +236,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     Mod+O { spawn "~/.config/niri/toggle-workspace.sh" "obsidian"; }
+    Mod+G { spawn "~/.local/src/gifboard/appimage-out/gifboard-x86_64.AppImage"; }
     Mod+Shift+O { move-column-to-workspace "obsidian"; }
 }
 

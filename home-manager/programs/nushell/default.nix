@@ -83,6 +83,7 @@ in
         mkdir $"($nu.cache-dir)"
         carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
         source $"($nu.cache-dir)/carapace.nu"
+        $env.PATH = ($env.PATH | append ${config.home.homeDirectory}/.local/bin)
       '';
 
       extraConfig = ''

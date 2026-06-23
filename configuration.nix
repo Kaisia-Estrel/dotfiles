@@ -211,7 +211,7 @@
   };
 
   systemd.sleep.settings.Sleep = {
-    HibernateDelaySec = "5m";
+    HibernateDelaySec = "3m";
   };
 
   powerManagement.enable = true;

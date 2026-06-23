@@ -24,6 +24,9 @@
     };
 
     sessionSearchVariables = {
+      PATH = [
+        "${config.home.homeDirectory}/.local/bin"
+      ];
       XDG_DATA_DIRS = [
         "/var/lib/flatpak/exports/share"
         "${config.home.homeDirectory}/.local/share/flatpak/exports/share"
