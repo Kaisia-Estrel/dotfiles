@@ -115,21 +115,38 @@ export def --wrapped lsgit [
 }
 
 # copies provided file/s into the clipboard with a proper mimetype
-export def cpfile [ file?: string ]: oneof<nothing, string, list<string>> -> nothing {
+export def cpfile [ 
+  file?: string 
+  --path # only copy the file path as plain text
+]: oneof<nothing, string, list<string>> -> nothing {
   if ($file | is-empty) {
     match ($in | describe) {
       nothing => {},
       string => { 
-        wl-copy -t 'text/uri-list' $"file://($in | path expand)" 
+        if $path {
+          wl-copy -t 'text/plain' $"($in | path expand)" 
+        } else {
+          wl-copy -t 'text/uri-list' $"file://($in | path expand)" 
+        }
       },
       list<string> => { 
-        each {|e| $"file://($e | path expand)"} 
-        | str join "\n" 
-        | wl-copy -t "text/uri-list"
+        if $path {
+          each {|e| $"/($e | path expand)"} 
+          | str join "\n" 
+          | wl-copy -t "text/plain"
+        } else {
+          each {|e| $"file://($e | path expand)"} 
+          | str join "\n" 
+          | wl-copy -t "text/uri-list"
+        }
       }
     }
   } else {
-    wl-copy -t 'text/uri-list' $"file://($file | path expand)"
+    if $path {
+      wl-copy -t 'text/plain' $"($file | path expand)"
+    } else {
+      wl-copy -t 'text/uri-list' $"file://($file | path expand)"
+    }
   }
 }
 
@@ -159,4 +176,17 @@ export def "to nix" [
 export def "from nix" []: string -> any {
   nix eval --raw --expr $"builtins.toJSON ($in)" 
     | from json
+}
+
+# Plot a math expression
+def plot [expr: string] {
+    $"
+        set terminal pngcairo enhanced font 'Fira Sans,10'
+        set autoscale
+        set samples 1000
+        set output '|kitty +kitten icat --stdin yes'
+        set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb '#fdf6e3' behind
+        plot ($expr)
+        set output '/dev/null'
+    " | ^gnuplot
 }
