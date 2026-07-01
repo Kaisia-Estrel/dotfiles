@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./niri
@@ -7,7 +7,6 @@
     ./firefox.nix
     ./kitty.nix
     ./wofi
-    ./wlogout.nix
     ./swaync.nix
     ./obsidian
   ];
@@ -15,11 +14,6 @@
   programs = {
     bat = {
       enable = true;
-    };
-
-    obs-studio = {
-      enable = true;
-      plugins = [ pkgs.obs-studio-plugins.wlrobs ];
     };
 
     mpv.enable = true;

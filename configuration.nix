@@ -217,6 +217,7 @@
   powerManagement.enable = true;
 
   programs = {
+    nix-ld.enable = true;
     xwayland = {
       enable = true;
     };
@@ -230,6 +231,15 @@
     waybar = {
       enable = true;
     };
+
+    obs-studio = {
+      enable = true;
+      plugins = [
+        pkgs.obs-studio-plugins.wlrobs
+        pkgs.obs-studio-plugins.input-overlay
+      ];
+    };
+
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -293,7 +303,6 @@
       vim
       kitty
       killall
-      eza
       git
       dict
       libinput-gestures
@@ -307,9 +316,7 @@
       wlogout
       brightnessctl
       appimage-run
-      networkmanagerapplet
       playerctl
-      file-roller
       swaynotificationcenter
       pavucontrol
       lxqt.lxqt-policykit
@@ -354,11 +361,7 @@
     wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
+      pkgs.xdg-desktop-portal-wlr
     ];
   };
 

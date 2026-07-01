@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    packet
+    # packet
     kdePackages.dolphin
 
     bacon
@@ -15,38 +15,38 @@
     grim
     manix
     dart-sass
-    xmlstarlet
-    (ags.overrideAttrs (old: {
-      buildInputs = old.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ];
-    }))
+    # xmlstarlet
+    # (ags.overrideAttrs (old: {
+    #   buildInputs = old.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ];
+    # }))
     imagemagick
     neovim
     # python312Packages.python-lsp-server
     ruff
     # davinci-resolve
     losslesscut-bin
-    switcheroo
+    # switcheroo
     simple-scan
-    hyprlock
+    # hyprlock
     socat
-    satty
+    # satty
     d2
-    hyprpaper
+    # hyprpaper
     lua51Packages.luarocks-nix
     brightnessctl
     playerctl
     lua51Packages.lua
     alsa-utils
-    hyprcursor
+    # hyprcursor
     # bitwarden-cli
-    (discord.override { withVencord = true; })
+    # (discord.override { withVencord = true; })
     # betterdiscordctl
     element-desktop
     bash-language-server
     kdePackages.kdenlive
     krita
     zathura
-    texlab
+    # texlab
     gimp
     blender
     libreoffice
@@ -54,10 +54,10 @@
     bun
     inotify-tools
     # graphviz
-    nautilus
-    loupe
+    # nautilus
+    # loupe
     wineWow64Packages.stable
-    eza
+    # eza
     ffmpeg
     ncdu
     handbrake
@@ -77,8 +77,8 @@
     xclip
     libnotify
     gnuplot
-    ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ epkgs.vterm ]))
-    exercism
+    # ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ epkgs.vterm ]))
+    # exercism
     sqlite
 
     # zoom-us
@@ -98,8 +98,8 @@
     file
     unzip
     fd
-    grex
-    fastfetch
+    # grex
+    # fastfetch
     trash-cli
     jq
     rlwrap
@@ -109,7 +109,7 @@
     beautysh
     steam-run
 
-    antidote
+    # antidote
     acpi
 
     shellcheck
@@ -157,5 +157,6 @@
     alacritty
     timg
     act
+    flameshot
   ];
 }

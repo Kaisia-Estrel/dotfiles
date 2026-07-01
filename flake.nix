@@ -38,7 +38,6 @@
         "nixos" = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            # inherit pkgs;
             overlays = [
               (import ./overlays)
             ];
